@@ -2,6 +2,7 @@ import /trustonic.rc
 
 on post-fs
     start boot-hal-1-2
+    start overrideprops
 
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
@@ -99,3 +100,10 @@ on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop mobicore
     stop gatekeeper-1-0
     stop keymint-trustonic
+
+service overrideprops /system/bin/overrideprops.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
