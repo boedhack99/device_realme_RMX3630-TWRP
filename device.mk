@@ -44,6 +44,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+# Keystore Hal
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
