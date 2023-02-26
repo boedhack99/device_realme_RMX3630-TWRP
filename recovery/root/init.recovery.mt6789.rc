@@ -1,0 +1,52 @@
+import /init.trustonic.rc
+
+service keystore_auth /system/bin/keystore_auth
+    oneshot
+    user system
+    group root
+    seclabel u:r:recovery:s0
+
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    install_keyring
+    setprop crypto.ready 1
+
+on property:hwservicemanager.ready=true && property:crypto.ready=1
+    start gatekeeper-1-0
+    start keymint-trustonic
+
+on property:ro.crypto.state=unsupported
+    setprop crypto.ready 0
+    stop mobicore
+    stop gatekeeper-1-0
+    stop keymint-trustonic
+
+on property:ro.crypto.state=unencrypted
+    setprop crypto.ready 0
+    stop mobicore
+    stop gatekeeper-1-0
+    stop keymint-trustonic
+
+on post-fs-data
+    mkdir /data/vendor_de 0770 system system
+    mkdir /data/vendor_de/0 0770 system system
+
+on boot
+    start health-hal-2-1
+
+service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
+    user root
+    group root drmrpc
+    disabled
+    seclabel u:r:recovery:s0 
+
+on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
+    setprop crypto.ready 0
+    stop mobicore
+    stop gatekeeper-1-0
+    stop keymint-trustonic
