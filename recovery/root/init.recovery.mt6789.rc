@@ -1,6 +1,8 @@
 import /trustonic.rc
 
 on post-fs
+    start boot-hal-1-2
+
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
 
