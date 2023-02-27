@@ -48,6 +48,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.system.keystore2
 
+# Security
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint-V1-cpp \
+    android.hardware.security.keymint-V1-ndk_platform \
+    android.hardware.security.secureclock-V1-cpp \
+    android.hardware.security.secureclock-V1-ndk_platform \
+    android.hardware.security.sharedsecret-V1-ndk_platform
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
