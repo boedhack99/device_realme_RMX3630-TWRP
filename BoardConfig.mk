@@ -20,6 +20,7 @@ AB_OTA_PARTITIONS += \
     vbmeta_system \
     vbmeta_vendor \
     vendor \
+    vendor_boot \
     vendor_dlkm
 
 # Architecture
