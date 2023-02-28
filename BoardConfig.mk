@@ -48,7 +48,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_OTA_ASSERT_DEVICE := RMX3630,neon,oplus
 
 # Kernel
-BOARD_VENDOR_BASE := 0x3fff8000
+BOARD_KERNEL_BASE := 0x3fff8000
 BOARD_VENDOR_CMDLINE += \
     bootopt=64S3,32N2,64N2 \
     androidboot.force_normal_boot=1
