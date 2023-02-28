@@ -23,7 +23,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # API
-PRODUCT_TARGET_VNDK_VERSION := 31
 PRODUCT_SHIPPING_API_LEVEL := 31
 
 # Boot control HAL
@@ -54,10 +53,13 @@ PRODUCT_PACKAGES += \
 
 # Security
 PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
     android.hardware.security.keymint-V1-cpp \
     android.hardware.security.keymint-V1-ndk_platform \
+    android.hardware.security.secureclock \
     android.hardware.security.secureclock-V1-cpp \
     android.hardware.security.secureclock-V1-ndk_platform \
+    android.hardware.security.sharedsecret \
     android.hardware.security.sharedsecret-V1-ndk_platform
 
 # Update engine

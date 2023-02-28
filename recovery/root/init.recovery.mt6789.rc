@@ -3,6 +3,8 @@ import /trustonic.rc
 on late-fs
     exec_start wait_for_keymaster
 
+    mount_all /first_stage_ramdisk/fstab.mt6789 --late
+
 on post-fs
     start boot-hal-1-2
     start overrideprops
@@ -86,13 +88,6 @@ on property:ro.crypto.state=unencrypted
     stop vendor.gatekeeper-1-0
     stop vendor.keymint-trustonic
 
-on post-fs-data
-    mkdir /data/vendor_de 0770 system system
-    mkdir /data/vendor_de/0 0770 system system
-
-on boot
-    start health-hal-2-1
-
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     user root
     group root
@@ -116,3 +111,6 @@ service overrideprops /system/bin/overrideprops.sh
     disabled
     oneshot
     seclabel u:r:recovery:s0
+
+on boot
+    start health-hal-2-1
