@@ -1,5 +1,8 @@
 import /trustonic.rc
 
+on fs
+    install_keyring
+
 on late-fs
     exec_start wait_for_keymaster
 
@@ -46,13 +49,13 @@ on property:vendor.mtk.boot1_linkc=1
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
 
-on fs
 service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     class main
     user root
     group root system
     oneshot
     disabled
+    seclabel u:r:recovery:s0
 
 service keystore_auth /system/bin/keystore_auth
     oneshot
