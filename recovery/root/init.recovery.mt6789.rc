@@ -1,5 +1,8 @@
 import /trustonic.rc
 
+on late-fs
+    exec_start wait_for_keymaster
+
 on post-fs
     start boot-hal-1-2
     start overrideprops
@@ -54,6 +57,13 @@ service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
     group root
+    seclabel u:r:recovery:s0
+
+service wait_for_keymaster /system/bin/wait_for_keymaster
+    user root
+    group root system
+    priority -20
+    ioprio rt 0
     seclabel u:r:recovery:s0
 
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
