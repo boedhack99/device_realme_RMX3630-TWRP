@@ -5,7 +5,7 @@
 #
 
 # Enable Virtual A/B OTA
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 ENABLE_VIRTUAL_AB := true
 
@@ -29,9 +29,13 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-mtkimpl \
     android.hardware.boot@1.2-mtkimpl.recovery
-
+ 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4
 
 # Fastbootd
 PRODUCT_PACKAGES += \
