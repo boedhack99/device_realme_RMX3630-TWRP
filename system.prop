@@ -1,0 +1,11 @@
+# Device
+ro.product.device=RMX3630
+ro.product.mod.device=neon
+
+# Platform
+ro.hardware=mt6789
+ro.mediatek.platform=MT6789
+
+# Root
+ro.debuggable=1
+ro.adb.secure=0

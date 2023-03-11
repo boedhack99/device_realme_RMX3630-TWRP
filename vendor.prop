@@ -6,10 +6,6 @@ ro.crypto.volume.filenames_mode=aes-256-cts:v2
 ro.hardware.gatekeeper=trustonic 
 ro.hardware.kmsetkey=trustonic
 
-# Platform
-ro.hardware=mt6789
-ro.mediatek.platform=MT6789
-
 # TEE
 ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_trustonic_tee_support=1
