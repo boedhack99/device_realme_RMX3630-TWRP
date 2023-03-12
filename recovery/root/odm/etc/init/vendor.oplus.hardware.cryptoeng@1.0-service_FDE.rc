@@ -23,9 +23,10 @@ on post-fs-data
     mkdir /data/vendor_de/0/cryptoeng 0770 system system
 
 service hal_cryptoeng_oplus /odm/bin/hw/vendor.oplus.hardware.cryptoeng@1.0-service
-    class hal
-    user system
-    group system input sdcard_rw sdcard_r
+    user root
+    group root input sdcard_rw sdcard_r
+    disabled
+    seclabel u:r:recovery:s0
 
 on property:sys.boot_completed=1
     setprop vendor.oplus.cryptoeng.need_init 1

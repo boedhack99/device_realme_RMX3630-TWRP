@@ -79,18 +79,31 @@ on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     setprop crypto.ready 1
 
 on property:hwservicemanager.ready=true && property:crypto.ready=1
+    start hal_cryptoeng_oplus
+    start keymaster_attestation-1-1
+    start mobicore
+    start soter_hal
+    start tee-1-1
     start vendor.gatekeeper-1-0
     start vendor.keymint-trustonic
 
 on property:ro.crypto.state=unsupported
     setprop crypto.ready 0
+    stop hal_cryptoeng_oplus
+    stop keymaster_attestation-1-1
     stop mobicore
+    stop soter_hal
+    stop tee-1-1
     stop vendor.gatekeeper-1-0
     stop vendor.keymint-trustonic
 
 on property:ro.crypto.state=unencrypted
     setprop crypto.ready 0
+    stop hal_cryptoeng_oplus
+    stop keymaster_attestation-1-1
     stop mobicore
+    stop soter_hal
+    stop tee-1-1
     stop vendor.gatekeeper-1-0
     stop vendor.keymint-trustonic
 
@@ -107,6 +120,10 @@ service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymin
 
 on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     setprop crypto.ready 0
+    stop hal_cryptoeng_oplus
+    stop keymaster_attestation-1-1
     stop mobicore
+    stop soter_hal
+    stop tee-1-1
     stop vendor.gatekeeper-1-0
     stop vendor.keymint-trustonic
