@@ -111,11 +111,13 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     user root
     group root
     disabled
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
 service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
     class early_hal
     group nobody
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0 
 
 on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
