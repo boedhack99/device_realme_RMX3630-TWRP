@@ -57,6 +57,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1
 
+PRODUCT_PACKAGES += \
+    libkeymaster4 \
+    libkeymaster41 \
+    libpuresoftkeymasterdevice
+
 # Keystore Hal
 PRODUCT_PACKAGES += \
     android.system.keystore2
