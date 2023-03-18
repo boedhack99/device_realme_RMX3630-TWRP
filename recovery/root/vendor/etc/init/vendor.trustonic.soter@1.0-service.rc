@@ -1,4 +1,4 @@
-service soter_hal /vendor/bin/hw/vendor.trustonic.soter@1.0-service
+service soter_hal /system/bin/vendor.trustonic.soter@1.0-service
     user root
     group root
     disabled

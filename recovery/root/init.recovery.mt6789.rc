@@ -74,21 +74,21 @@ service wait_for_keymaster /system/bin/wait_for_keymaster
     ioprio rt 0
     seclabel u:r:recovery:s0
 
-service hal_cryptoeng_oplus /vendor/bin/hw/vendor.oplus.hardware.cryptoeng@1.0-service
+service hal_cryptoeng_oplus /system/bin/vendor.oplus.hardware.cryptoeng@1.0-service
     user root
     group root input sdcard_rw sdcard_r
     disabled
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
-service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+service vendor.gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
     user root
     group root
     disabled
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
-service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
+service vendor.keymint-trustonic /system/bin/android.hardware.security.keymint-service.trustonic
     class early_hal
     group nobody
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
