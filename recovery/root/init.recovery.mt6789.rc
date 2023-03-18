@@ -119,11 +119,11 @@ service vendor.keymint-trustonic /system/bin/android.hardware.security.keymint-s
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
-on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
-    install_keyring
-    setprop crypto.ready 1
+on property:crypto.ready=1
+    start keymaster_attestation-1-1
+    start vendor.keymint-trustonic
 
-on property:hwservicemanager.ready=true && property:crypto.ready=1
+on property:hwservicemanager.ready=true
     start hal_cryptoeng_oplus
     start keymaster_attestation-1-1
     start mobicore
@@ -133,7 +133,6 @@ on property:hwservicemanager.ready=true && property:crypto.ready=1
     start vendor.keymint-trustonic
 
 on property:ro.crypto.state=unsupported
-    setprop crypto.ready 0
     stop hal_cryptoeng_oplus
     stop keymaster_attestation-1-1
     stop mobicore
@@ -143,7 +142,6 @@ on property:ro.crypto.state=unsupported
     stop vendor.keymint-trustonic
 
 on property:ro.crypto.state=unencrypted
-    setprop crypto.ready 0
     stop hal_cryptoeng_oplus
     stop keymaster_attestation-1-1
     stop mobicore
@@ -152,8 +150,7 @@ on property:ro.crypto.state=unencrypted
     stop vendor.gatekeeper-1-0
     stop vendor.keymint-trustonic
 
-on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
-    setprop crypto.ready 0
+on property:twrp.decrypt.done=true
     stop hal_cryptoeng_oplus
     stop keymaster_attestation-1-1
     stop mobicore
