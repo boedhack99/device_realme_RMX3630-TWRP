@@ -104,15 +104,24 @@ service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
+service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.trustonic
+    user root
+    group root drmrpc
+    disabled
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
+    seclabel u:r:recovery:s0
+
 on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start mobicore
     start gatekeeper-1-0
+    start keymaster-4-1
 
 on property:ro.crypto.state=unsupported
     stop hal_cryptoeng_oppo
     stop mobicore
     stop gatekeeper-1-0
+    stop keymaster-4-1
     stop servicemanager
     stop hwservicemanager
 
@@ -120,6 +129,7 @@ on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
     stop mobicore
     stop gatekeeper-1-0
+    stop keymaster-4-1
     stop servicemanager
     stop hwservicemanager
 
@@ -127,6 +137,7 @@ on property:twrp.decrypt.done=true
     stop hal_cryptoeng_oppo
     stop mobicore
     stop gatekeeper-1-0
+    stop keymaster-4-1
     stop servicemanager
     stop hwservicemanager
 
@@ -134,6 +145,7 @@ on property:enable.fbe.service=0
     stop hal_cryptoeng_oppo
     stop mobicore
     stop gatekeeper-1-0
+    stop keymaster-4-1
     stop servicemanager
     stop hwservicemanager
 
