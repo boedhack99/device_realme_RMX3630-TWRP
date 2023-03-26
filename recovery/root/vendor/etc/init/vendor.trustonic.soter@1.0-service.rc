@@ -1,6 +1,0 @@
-service soter_hal /system/bin/vendor.trustonic.soter@1.0-service
-    user root
-    group root
-    disabled
-    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
-    seclabel u:r:recovery:s0
