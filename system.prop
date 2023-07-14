@@ -9,3 +9,15 @@ ro.mediatek.platform=MT6789
 # Root
 ro.debuggable=1
 ro.adb.secure=0
+
+# Crypto
+fbe.metadata.wrappedkey=true
+ro.crypto.volume.filenames_mode=aes-256-cts:v2
+
+# Gatekeeper
+ro.hardware.gatekeeper=trustonic 
+ro.hardware.kmsetkey=trustonic
+
+# TEE
+ro.vendor.mtk_tee_gp_support=1
+ro.vendor.mtk_trustonic_tee_support=1
