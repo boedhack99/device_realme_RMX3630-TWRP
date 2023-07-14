@@ -51,8 +51,11 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-service \
     android.hardware.boot@1.2-mtkimpl \
     android.hardware.boot@1.2-mtkimpl.recovery
+    bootctrl.mt6789 \
+    bootctrl.mt6789.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
