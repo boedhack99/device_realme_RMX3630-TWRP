@@ -115,14 +115,14 @@ service hal_cryptoeng_oppo /system/bin/hw/vendor.oplus.hardware.cryptoeng@1.0-se
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
-service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     user root
     group root
     disabled
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
 
-service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.trustonic
+service vendor.keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
     user root
     group root drmrpc
     disabled
@@ -132,38 +132,38 @@ service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.truston
 on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start mobicore
-    start gatekeeper-1-0
-    start keymaster-4-1
+    start vendor.gatekeeper-1-0
+    start vendor.keymint-trustonic
 
 on property:ro.crypto.state=unsupported
     stop hal_cryptoeng_oppo
     stop mobicore
-    stop gatekeeper-1-0
-    stop keymaster-4-1
+    stop vendor.gatekeeper-1-0
+    stop vendor.keymint-trustonic
     stop servicemanager
     stop hwservicemanager
 
 on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
     stop mobicore
-    stop gatekeeper-1-0
-    stop keymaster-4-1
+    stop vendor.gatekeeper-1-0
+    stop vendor.keymint-trustonic
     stop servicemanager
     stop hwservicemanager
 
 on property:twrp.decrypt.done=true
     stop hal_cryptoeng_oppo
     stop mobicore
-    stop gatekeeper-1-0
-    stop keymaster-4-1
+    stop vendor.gatekeeper-1-0
+    stop vendor.keymint-trustonic
     stop servicemanager
     stop hwservicemanager
 
 on property:enable.fbe.service=0
     stop hal_cryptoeng_oppo
     stop mobicore
-    stop gatekeeper-1-0
-    stop keymaster-4-1
+    stop vendor.gatekeeper-1-0
+    stop vendor.keymint-trustonic
     stop servicemanager
     stop hwservicemanager
 
