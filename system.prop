@@ -1,18 +1,8 @@
-# Device
-ro.product.device=RMX3630
-ro.product.mod.device=neon
-
-# Platform
-ro.hardware=mt6789
-ro.mediatek.platform=MT6789
-
-# Root
-ro.debuggable=1
-ro.adb.secure=0
+# Fstab
+ro.postinstall.fstab.prefix=/system
 
 # Crypto
-fbe.metadata.wrappedkey=true
-ro.crypto.volume.filenames_mode=aes-256-cts:v2
+ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Gatekeeper
 ro.hardware.gatekeeper=trustonic 
