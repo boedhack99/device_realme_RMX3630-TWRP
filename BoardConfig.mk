@@ -152,6 +152,7 @@ TW_EXTRA_LANGUAGES := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_INCLUDE_LOGICAL := my_bigball my_carrier my_compan my_engineering my_heytap my_manifest my_preload my_product my_region my_stock my_version common_preload special_preload
 TW_NO_SCREEN_BLANK := true
+TW_OZIP_DECRYPT_KEY := 0000
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
