@@ -5,7 +5,7 @@
 #
 
 # Inherit from RMX3630 device
-$(call inherit-product, device/oplus/RMX3630/device.mk)
+$(call inherit-product, device/realme/RMX3630/device.mk)
 
 # Inherit some common TWRP stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)

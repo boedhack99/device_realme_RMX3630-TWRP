@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/oplus/RMX3630
+DEVICE_PATH := device/realme/RMX3630
 
 # Architecture
 TARGET_ARCH := arm64
