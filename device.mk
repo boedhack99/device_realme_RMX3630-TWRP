@@ -23,6 +23,7 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
+    lk \
     odm \
     odm_dlkm \
     product \
@@ -31,6 +32,7 @@ AB_OTA_PARTITIONS += \
     vbmeta_system \
     vbmeta_vendor \
     vendor \
+    vendor_boot \
     vendor_dlkm
 
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -82,11 +84,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1
 
-PRODUCT_PACKAGES += \
-    libkeymaster4 \
-    libkeymaster41 \
-    libpuresoftkeymasterdevice
-
 # Keystore Hal
 PRODUCT_PACKAGES += \
     android.system.keystore2
@@ -99,13 +96,8 @@ PRODUCT_PACKAGES += \
 # Security
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint \
-    android.hardware.security.keymint-V1-cpp \
-    android.hardware.security.keymint-V1-ndk_platform \
     android.hardware.security.secureclock \
-    android.hardware.security.secureclock-V1-cpp \
-    android.hardware.security.secureclock-V1-ndk_platform \
-    android.hardware.security.sharedsecret \
-    android.hardware.security.sharedsecret-V1-ndk_platform
+    android.hardware.security.sharedsecret
 
 # Update engine
 PRODUCT_PACKAGES += \
@@ -118,12 +110,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Additional configs
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1 \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1
+
 TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.keymaster@4.1 \
-    libkeymaster4 \
-    libkeymaster41 \
-    libpuresoftkeymasterdevice
+    android.hardware.keymaster@4.1

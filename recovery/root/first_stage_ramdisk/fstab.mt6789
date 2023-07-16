@@ -92,6 +92,7 @@ odm_dlkm /odm_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 
 /devices/platform/soc/11240000.mmc* auto auto defaults voldmanaged=sdcard1:auto
+/devices/platform/soc/soc:odm/11230000.msdc* auto auto defaults voldmanaged=sdcard1:auto
 
 /devices/platform/soc/mt_usb* auto vfat defaults voldmanaged=usbotg:auto
 

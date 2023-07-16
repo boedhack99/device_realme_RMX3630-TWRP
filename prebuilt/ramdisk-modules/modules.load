@@ -168,7 +168,10 @@ oplus_boost_pool_mtk.ko
 oplus_mm_kevent.ko
 oplus_mm_kevent_fb.ko
 oplus_bsp_fw_update.ko
+oplus_bsp_mm_osvelte.ko
 oplus2269C_samsung_ams643ag01_1080p_dsi_cmd.ko
+oplus22281_samsung_ams643ag01_1080p_dsi_cmd.ko
+oplus22281_samsung_ams643ag01_1080p_dsi_vdo.ko
 oplus_bsp_tp_custom.ko
 oplus_bsp_tp_comon.ko
 oplus_bsp_tp_notify.ko
@@ -180,8 +183,10 @@ oplus_bsp_tp_ilitek_common.ko
 oplus_bsp_tp_ilitek7807s.ko
 oplus_bsp_tp_syna_comnon.ko
 oplus_bsp_tp_tcm_S3910.ko
+horae_shell_temp.ko
 kernel_fb.ko
 oplus_phoenix.ko
+oplus_kmsg_wb.ko
 oplus_secure_harden.ko
 oplus_security_guard.ko
 oplus_security_keventupload.ko
