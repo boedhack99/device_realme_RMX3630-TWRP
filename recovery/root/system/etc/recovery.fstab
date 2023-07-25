@@ -129,8 +129,6 @@ my_manifest /my_manifest erofs ro wait,slotselect,logical,first_stage_mount,nofa
 
 /dev/block/by-name/otp /otp emmc defaults defaults
 /dev/block/by-name/odm /custom ext4 ro wait,verify,recoveryonly
-/dev/block/mmcblk0p1 /external_sd vfat  nosuid,nodev defaults
-/dev/block/sdd1 /usb_otg vfat nosuid,nodev defaults
 /dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
 #Yang.Li@PSW.AD.Recovery.1122242, 2018/03/22, Add for critical log in mtk platform
 /dev/block/by-name/reserve2            /reserve2       emmc    defaults                                                      defaults

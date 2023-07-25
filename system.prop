@@ -1,12 +1,14 @@
 # Fstab
 ro.postinstall.fstab.prefix=/system
 
+# USB MTP
+ro.sys.usb.storage.type=mtp
+
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Gatekeeper
-ro.hardware.gatekeeper=trustonic 
-ro.hardware.kmsetkey=trustonic
+ro.hardware.gatekeeper=trustonic
 
 # TEE
 ro.vendor.mtk_tee_gp_support=1
